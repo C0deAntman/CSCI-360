@@ -23,34 +23,36 @@ int main(){
         solver.calcFreq();
         solver.printcomparisonTable();
 
-        cout << "bpr -> the\n";
+        //bpr shows up a lot in the cipher, either its "the" or "and" or "one"
+        //if it was "and" then "b" would be a, but w is alone so its either "a" or "i"
+        //so bpr is "the" and b is t, p is h, r is e
         solver.setSubs('b', 't');
         solver.setSubs('p', 'h');
         solver.setSubs('r', 'e');
 
-        //hypothesis one
+        //hypothesis two
         // solver.setSubs('w', 'a'); w is alone a lot, a is a word of one letter FAILED
         solver.setSubs('i', 's'); //s is a common letter after a, wi are together, could be "as"
         //hypthesis worked so far
-        //hypothesis two
+        //hypothesis three
         solver.setSubs('j', 'o'); //j is next to t a lot, common word is "to"
         //hypothesis worked so far
-        //hypothesis three
+        //hypothesis four
         solver.setSubs('x', 'f'); //x is next to o a lot, common word is "of"
         //hypothesis worked so far
-        //hypothesis four
+        //hypothesis five
         solver.setSubs('k', 'n'); //k is next to ot making me think of the word "not"
         // solver.setSubs('m', 'i'); if we assume k is n, since m is next to k, mk can be "in" FAILED
         // m is not i, there is no word that has 3 letters and the first two are in
 
-        //hypothesis five: m is next to n in mkd, we know k is n, so mkd can be "one" meaning m is o, d is e
+        //hypothesis six: m is next to n in mkd, we know k is n, so mkd can be "one" meaning m is o, d is e
         // solver.setSubs('m', 'o'); FAILED!
         // solver.setSubs('d', 'e'); FAILED!
         // m can not be o because j is o , d is not e, r is e
         //hypothesis succesful, we have "one" in the text and more coherent clues of possible words
-        //hypothesis six: y is next to t, possoble word "it", so y is i
+        //hypothesis seven: y is next to t, possoble word "it", so y is i
         // solver.setSubs('y', 'i'); Failed
-        //hypothersis seven: i have found the almsot decoded text "itsehf", if we are to 
+        //hypothersis eight: i have found the almsot decoded text "itsehf", if we are to 
         //assume all the letters previously decoded are correct, then h is l, so "itself" is the decoded text
         solver.setSubs('h', 'l');
         //w can not be a because it creates nonsense words like 'ats" and then words like "thmt" can not be 
